@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Autoplay</title>
+</head>
+<body>
+    <audio id="player" autoplay>
+        <source src="https://files.catbox.moe/d0rj9e.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var audio = document.getElementById("player");
+            audio.volume = 1.0;
+
+            var playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(function(error) {
+                    window.location.href = "https://files.catbox.moe/dein_audio.mp3"; 
+                });
+            }
+        });
+    </script>
+</body>
+</html>
